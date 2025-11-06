@@ -1,14 +1,54 @@
 #include <stdio.h>
 
-// Desafio Batalha Naval - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de Batalha Naval.
-// Siga os comentários para implementar cada parte do desafio.
-
 int main() {
-    // Nível Novato - Posicionamento dos Navios
-    // Sugestão: Declare uma matriz bidimensional para representar o tabuleiro (Ex: int tabuleiro[5][5];).
-    // Sugestão: Posicione dois navios no tabuleiro, um verticalmente e outro horizontalmente.
-    // Sugestão: Utilize `printf` para exibir as coordenadas de cada parte dos navios.
+    char colunas[] = "ABCDEFGHIJ";
+    int tabuleiro[10][10];
+    int i, j;
+
+    // Preenche todo o tabuleiro com 0 (representando a água)
+    for (i = 0; i < 10; i++) {
+        for (j = 0; j < 10; j++) {
+            tabuleiro[i][j] = 0;
+        }
+    }
+    
+    // Os navios ocuparão 3 espaços cada e o valor '3' os representará.
+
+    // Navio 1 (Horizontal)
+    // Colocado na linha 5, começando da coluna B (índices: linha 4, coluna 1)
+    tabuleiro[4][1] = 3;
+    tabuleiro[4][2] = 3;
+    tabuleiro[4][3] = 3;
+
+    // Navio 2 (Vertical)
+    // Colocado na coluna H, começando da linha 7 (índices: coluna 7, linha 6)
+    tabuleiro[6][7] = 3;
+    tabuleiro[7][7] = 3;
+    tabuleiro[8][7] = 3;
+
+
+    // --- IMPRIME O TABULEIRO ---
+    printf("\n   *** TABULEIRO BATALHA NAVAL ***\n\n");
+
+    // Imprime as letras das colunas (A, B, C...)
+    printf("   "); // Espaço para alinhar com os números das linhas
+    for (j = 0; j < 10; j++) {
+        printf("%c ", colunas[j]);
+    }
+    printf("\n");
+
+    // Imprime as linhas com seus números e o conteúdo do tabuleiro
+    for (i = 0; i < 10; i++) {
+        printf("%2d ", i + 1); // Imprime o número da linha (1 a 10)
+        for (j = 0; j < 10; j++) {
+            printf("%d ", tabuleiro[i][j]); // Imprime o valor da célula (0 ou 3)
+        }
+        printf("\n");
+    }
+    printf("\n");
+
+    return 0;
+    
 
     // Nível Aventureiro - Expansão do Tabuleiro e Posicionamento Diagonal
     // Sugestão: Expanda o tabuleiro para uma matriz 10x10.
